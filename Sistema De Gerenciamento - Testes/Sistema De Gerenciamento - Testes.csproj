@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Sistema_De_Gerenciamento___Testes</RootNamespace>
+
+    <IsPackable>false</IsPackable>
+
+    <BaseOutputPath>C:\Users\kauan\OneDrive\Área de Trabalho\SGH</BaseOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="AdministradorTest.cs" />
+    <Compile Include="Mocks\AutenticaADM.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
+    <PackageReference Include="Moq" Version="4.20.72" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+    <PackageReference Include="xunit" Version="2.4.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="3.1.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sistema de Gerenciamento Hospitalar\Sistema de Gerenciamento Hospitalar.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Sistema de Gerenciamento Hospitalar">
+      <HintPath>..\Sistema de Gerenciamento Hospitalar\bin\Debug\Sistema de Gerenciamento Hospitalar.exe</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
