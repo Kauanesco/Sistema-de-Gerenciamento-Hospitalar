@@ -146,6 +146,9 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             ConfirmaSenha.Enabled = true;
             Gravar.Enabled = true;
             Cancelar.Enabled = true;
+            Visualizar.Visible = true;
+            label3.Visible=true;
+
         }
         //Padroniza a form para alterar os dados
         public void Altera()
@@ -160,6 +163,9 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             Cancelar.Enabled= true;
             SalvarAlteração.BringToFront();
             label_confirm.Visible=false;
+            Visualizar.Visible = true;
+            label3.Visible=true;
+
         }
         //Limpa os dados que estão nas textbox
         public void Limpa()
@@ -192,6 +198,10 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             Cancelar.Enabled = false;
             SalvarAlteração.SendToBack();
             Excluir.Enabled = false;
+            Visualizar.Visible = false;
+            label3.Visible=false;
+
+
         }
 
         //Método para enviar os dados do paciente a classe paciente para se comunicar com a Exclusão no banco de dados
@@ -289,6 +299,7 @@ namespace Sistema_de_Gerenciamento_Hospitalar
 
         private void Senha_TextChanged(object sender, EventArgs e)
         {
+            Senha.UseSystemPasswordChar = true;
         }
 
         private void Senha_MouseMove(object sender, MouseEventArgs e)
@@ -303,6 +314,8 @@ namespace Sistema_de_Gerenciamento_Hospitalar
 
         private void ConfirmaSenha_TextChanged(object sender, EventArgs e)
         {
+            ConfirmaSenha.UseSystemPasswordChar=true;
+
         }
 
         private void CRMnum_MouseMove(object sender, MouseEventArgs e)
@@ -396,6 +409,28 @@ namespace Sistema_de_Gerenciamento_Hospitalar
         private void CRMnum_Click(object sender, EventArgs e)
         {
             CRMestado.Visible = true;
+        }
+
+        private void Visualizar_MouseDown(object sender, MouseEventArgs e)
+        {
+            Senha.UseSystemPasswordChar = false;
+            ConfirmaSenha.UseSystemPasswordChar=false;
+        }
+
+        private void Visualizar_MouseUp(object sender, MouseEventArgs e)
+        {
+            Senha.UseSystemPasswordChar = true;
+            ConfirmaSenha.UseSystemPasswordChar=true;
+        }
+
+        private void Visualizar_MouseMove(object sender, MouseEventArgs e)
+        {
+            tooltip.SetToolTip(Visualizar, "Exibir as Senhas.");
+        }
+
+        private void Visualizar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

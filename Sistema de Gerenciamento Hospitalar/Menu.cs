@@ -263,7 +263,6 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             Prontuário();
         }
 
-
     }
 
 }

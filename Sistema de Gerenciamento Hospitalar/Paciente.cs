@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Security.Cryptography;
@@ -29,8 +30,9 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             this.tbl_PacienteTableAdapter.Fill(this.dBHospitalDataSet.tbl_Paciente);
 
         }
-        //Método para cancelar alterações
-        public void Cancela()
+        public void Cancela()        //Método para cancelar alterações
+
+
         {
             Nome_Pac.Enabled = false;
             CPF_Pesquisar.Text = string.Empty;
@@ -52,8 +54,9 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             Novo_Pac.Enabled = true;
             SalvarAlteração.SendToBack();
         }
-        //Método para exibir os dados do paciente em um datagrid
-        public void PesquisaPaciente()
+        public void PesquisaPaciente()        //Método para exibir os dados do paciente em um datagrid
+
+
         {
             SqlConnection conn = new SqlConnection("Data Source=DESKTOP-FIH0C4I\\SQLEXPRESS01;integrated security=SSPI;Initial Catalog=DBHospital");
             SqlCommand cmd = conn.CreateCommand();
@@ -107,8 +110,8 @@ namespace Sistema_de_Gerenciamento_Hospitalar
                 conn.Close();
             }
         }
-        //Método para padronizar a forme para receber novos dados
-        public void Novo()
+        public void Novo()         //Método para padronizar a forme para receber novos dados
+
         {
             Nome_Pac.Enabled = true;
             CPF_Pesquisar.Text = string.Empty;
@@ -127,8 +130,9 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             Gravar.Enabled = true;
             Cancelar.Enabled = true;
         }
-        //Método para limpar os dados inseridos
-        public void Limpa()
+
+        public void Limpa()        //Método para limpar os dados inseridos
+
         {
             Nome_Pac.Text = string.Empty;
             CPF_Pesquisar.Text = string.Empty;
@@ -146,8 +150,9 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             Endereco.Text = string.Empty;
 
         }
-        //Botão para habilitar a alteração na form
-        public void Altera()
+
+        public void Altera()        //Botão para habilitar a alteração na form
+
         {
             Novo_Pac.Enabled = false;
             Gravar.Enabled = true;
@@ -171,8 +176,9 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             SalvarAlteração.BringToFront();
 
         }
-        //Método para enviar os dados do paciente a classe paciente para se comunicar com a inserção no banco de dados
-        public void GravarDados()
+
+        public void GravarDados()        //Método para enviar os dados do paciente a classe paciente para se comunicar com a inserção no banco de dados
+
         {
             //Controle para que não haja a incrementação com dados em branco.
             if (!string.IsNullOrWhiteSpace(Nome_Pac.Text) && !string.IsNullOrWhiteSpace(CPF_Pac.Text) && !string.IsNullOrWhiteSpace(Nasc_Pac.Text) &&!string.IsNullOrWhiteSpace(Tel_Pac.Text) && !string.IsNullOrWhiteSpace(Sexo.Text) && !string.IsNullOrWhiteSpace(CEP.Text) && !string.IsNullOrWhiteSpace(Rua.Text) && !string.IsNullOrWhiteSpace(Numero.Text) && !string.IsNullOrWhiteSpace(Bairro.Text) && !string.IsNullOrWhiteSpace(Cidade.Text) && !string.IsNullOrWhiteSpace(UF.Text) && !string.IsNullOrWhiteSpace(Tipo_Sangue.Text))
@@ -191,8 +197,9 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             }
         }
 
-        //Método para enviar os dados do paciente a classe paciente para se comunicar com a Exclusão no banco de dados
-        public void ExcluirDados() {
+        public void ExcluirDados() //Método para enviar os dados do paciente a classe paciente para se comunicar com a Exclusão no banco de dados
+
+        {
             DialogResult delete = MessageBox.Show("Você realmente deseja excluir estes dados? \n Os dados serão excluidos permanentemente", "Excluir Dados", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (delete == DialogResult.Yes)
             {
@@ -202,8 +209,8 @@ namespace Sistema_de_Gerenciamento_Hospitalar
         }
 
 
-        //Método para enviar os dados do paciente a classe paciente para se comunicar com a inserção no banco de dados
-        private void SalvarAlteração_Click(object sender, EventArgs e)
+        private void SalvarAlteração_Click(object sender, EventArgs e)        //Método para enviar os dados do paciente a classe paciente para se comunicar com a inserção no banco de dados
+
         {
             if (!string.IsNullOrWhiteSpace(Nome_Pac.Text) && !string.IsNullOrWhiteSpace(CPF_Pac.Text) && !string.IsNullOrWhiteSpace(Nasc_Pac.Text) &&!string.IsNullOrWhiteSpace(Tel_Pac.Text) && !string.IsNullOrWhiteSpace(Sexo.Text) && !string.IsNullOrWhiteSpace(Endereco.Text) && !string.IsNullOrWhiteSpace(Tipo_Sangue.Text))
             {
@@ -291,7 +298,7 @@ namespace Sistema_de_Gerenciamento_Hospitalar
 
         }
 
-        private void Tel_Pac_KeyPress(object sender, KeyPressEventArgs e)
+        private void Tel_Pac_KeyPress(object sender, KeyPressEventArgs e) //aceita apenas inserção de números
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
             {
@@ -299,7 +306,7 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             }
         }
 
-        private void Numero_KeyPress(object sender, KeyPressEventArgs e)
+        private void Numero_KeyPress(object sender, KeyPressEventArgs e)//aceita apenas inserção de números
         { 
             //inserção de apenas numeros
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
@@ -308,7 +315,7 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             }
         }
 
-        private void CEP_KeyPress(object sender, KeyPressEventArgs e)
+        private void CEP_KeyPress(object sender, KeyPressEventArgs e)//aceita apenas inserção de números
         {
             //inserção de apenas numeros
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
@@ -317,7 +324,7 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             }
         }
 
-        private void CPF_Pac_KeyPress(object sender, KeyPressEventArgs e)
+        private void CPF_Pac_KeyPress(object sender, KeyPressEventArgs e)//aceita apenas inserção de números
         {
             //inserção de apenas numeros
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
@@ -330,7 +337,7 @@ namespace Sistema_de_Gerenciamento_Hospitalar
         {
         }
 
-        private void CPF_Pesquisar_KeyPress(object sender, KeyPressEventArgs e)
+        private void CPF_Pesquisar_KeyPress(object sender, KeyPressEventArgs e)//aceita apenas inserção de números
         {
             //inserção de apenas numeros
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
@@ -339,9 +346,9 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             }
         }
 
-        private void Pesquisa_Dados_Click(object sender, EventArgs e)
+        private void Pesquisa_Dados_Click(object sender, EventArgs e)            //comando para que não seja pesquisados valores vazios
+
         {
-            //comando para que não seja pesquisados valores vazios
             if (!string.IsNullOrWhiteSpace(CPF_Pesquisar.Text) && CPF_Pesquisar.Text.Length == 14)
             {
                 PesquisaPaciente();
@@ -414,6 +421,7 @@ namespace Sistema_de_Gerenciamento_Hospitalar
         private void button1_Click(object sender, EventArgs e)
         {
             GroupEnder.Visible=false;
+            Endereco.Text = "Rua " + Rua.Text  + ", Nº" + Numero.Text + ", bairro "+ Bairro.Text + ", "+Cidade.Text+ " - "+UF.Text +", CEP " + CEP.Text;
         }
 
         private void Endereco_DoubleClick(object sender, EventArgs e)
@@ -425,6 +433,13 @@ namespace Sistema_de_Gerenciamento_Hospitalar
         {
 
         }
+
+        private void PesquisaCep_Click(object sender, EventArgs e)
+        {
+
+            
+        }
+
     }
 }
 

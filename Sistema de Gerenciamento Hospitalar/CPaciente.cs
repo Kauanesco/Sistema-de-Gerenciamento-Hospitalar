@@ -35,9 +35,19 @@ namespace Sistema_de_Gerenciamento_Hospitalar
         public string Altura { get; set; }
         public string Temperatura { get; set; }
         public string ResumoPac { get; set; }
-        public string Prioridade { get; set; }
+        public int Prioridade { get; set; }
 
 
+        public int VerificaCadastro(string cpf)            //verifica se o CPF que está sendo inserido não esta cadastrado no banco de dados
+
+        {
+            string verificaDB = "SELECT COUNT(*) FROM tbl_Paciente WHERE CPF_Paciente = @CPF";
+            SqlCommand cmdV = new SqlCommand(verificaDB, conn);
+            cmdV.Parameters.AddWithValue("@CPF", cpf);
+            conn.Open();
+            int count = (int)cmdV.ExecuteScalar();
+            return count;
+        }
 
 
         //método para salvar os dados de cadastro dos pacientes.
@@ -64,12 +74,8 @@ namespace Sistema_de_Gerenciamento_Hospitalar
 
             try
 
-            {   //verifica se o CPF que está sendo inserido não esta cadastrado no banco de dados
-                string verificaDB = "SELECT COUNT(*) FROM tbl_Paciente WHERE CPF_Paciente = @CPF";
-                SqlCommand cmdV = new SqlCommand(verificaDB, conn);
-                cmdV.Parameters.AddWithValue("@CPF", cpf);
-                conn.Open();
-                int count = (int)cmdV.ExecuteScalar();
+            {
+                int count = VerificaCadastro(cpf);
                 conn.Close();
                 if (count > 0)//caso estiver cadastrado, é exibido a mensagem de erro.
                 {
@@ -192,7 +198,7 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             }
         }
         //Gravação dos dados da triagem, armazenando as informações no banco de dados
-        public void Triagem(string nome, string cpf, string peso, string altura, string temperatura, string pressao, string resumo, string prioridade)
+        public void Triagem(string nome, string cpf, string peso, string altura, string temperatura, string pressao, string resumo, int prioridade)
         {
             pessoa.Nome = nome;
             pessoa.CPF = cpf;
@@ -235,9 +241,10 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             {
 
                 conn.Open();
-                string fila = "INSERT INTO tbl_Fila (CPF_Paciente, Nome) values (@ncpf, @nome) "; SqlCommand cm = new SqlCommand(fila, conn);
+                string fila = "INSERT INTO tbl_Fila (CPF_Paciente, Nome, Prioridade) values (@ncpf, @nome, @prioridade) "; SqlCommand cm = new SqlCommand(fila, conn);
                 cm.Parameters.Add("@ncpf", SqlDbType.VarChar).Value = cpf;
                 cm.Parameters.Add("@nome", SqlDbType.VarChar).Value = nome;
+                cm.Parameters.Add("@prioridade", SqlDbType.VarChar).Value = prioridade;
                 cm.ExecuteNonQuery();
             }
             catch (Exception erro)

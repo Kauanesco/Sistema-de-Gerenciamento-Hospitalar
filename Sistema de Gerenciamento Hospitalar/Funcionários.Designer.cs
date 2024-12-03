@@ -61,6 +61,7 @@
             this.Cargo_Pesquisar = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Cancelar = new System.Windows.Forms.Button();
+            this.Visualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dbHospitalDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTG)).BeginInit();
             this.SuspendLayout();
@@ -284,6 +285,7 @@
             this.label3.Size = new System.Drawing.Size(67, 22);
             this.label3.TabIndex = 46;
             this.label3.Text = "Senha";
+            this.label3.Visible = false;
             // 
             // Senha
             // 
@@ -293,7 +295,6 @@
             this.Senha.Location = new System.Drawing.Point(119, 320);
             this.Senha.MaxLength = 8;
             this.Senha.Name = "Senha";
-            this.Senha.PasswordChar = '*';
             this.Senha.Size = new System.Drawing.Size(105, 20);
             this.Senha.TabIndex = 8;
             this.Senha.Visible = false;
@@ -306,10 +307,10 @@
             this.ConfirmaSenha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ConfirmaSenha.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.ConfirmaSenha.Enabled = false;
-            this.ConfirmaSenha.Location = new System.Drawing.Point(427, 320);
+            this.ConfirmaSenha.Location = new System.Drawing.Point(422, 321);
             this.ConfirmaSenha.MaxLength = 8;
             this.ConfirmaSenha.Name = "ConfirmaSenha";
-            this.ConfirmaSenha.Size = new System.Drawing.Size(88, 20);
+            this.ConfirmaSenha.Size = new System.Drawing.Size(105, 20);
             this.ConfirmaSenha.TabIndex = 9;
             this.ConfirmaSenha.Visible = false;
             this.ConfirmaSenha.TextChanged += new System.EventHandler(this.ConfirmaSenha_TextChanged);
@@ -490,12 +491,32 @@
             this.Cancelar.UseVisualStyleBackColor = false;
             this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
+            // Visualizar
+            // 
+            this.Visualizar.BackColor = System.Drawing.Color.White;
+            this.Visualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Visualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Visualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Visualizar.Image = ((System.Drawing.Image)(resources.GetObject("Visualizar.Image")));
+            this.Visualizar.Location = new System.Drawing.Point(533, 322);
+            this.Visualizar.Name = "Visualizar";
+            this.Visualizar.Size = new System.Drawing.Size(32, 20);
+            this.Visualizar.TabIndex = 58;
+            this.Visualizar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Visualizar.UseVisualStyleBackColor = false;
+            this.Visualizar.Visible = false;
+            this.Visualizar.Click += new System.EventHandler(this.Visualizar_Click);
+            this.Visualizar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Visualizar_MouseDown);
+            this.Visualizar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Visualizar_MouseMove);
+            this.Visualizar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Visualizar_MouseUp);
+            // 
             // Funcionários
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(920, 682);
+            this.Controls.Add(this.Visualizar);
             this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Cargo_Pesquisar);
@@ -570,5 +591,6 @@
         private System.Windows.Forms.ComboBox Cargo_Pesquisar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button Cancelar;
+        private System.Windows.Forms.Button Visualizar;
     }
 }

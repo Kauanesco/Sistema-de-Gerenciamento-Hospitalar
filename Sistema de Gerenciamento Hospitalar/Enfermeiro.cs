@@ -26,30 +26,35 @@ namespace Sistema_de_Gerenciamento_Hospitalar
         public Enfermeiro()
         {
         }
-        //Grava os dados cadastrais de um enfermeiro em um banco de dados
-        public void SalvarDados(string cpf, string nome, string senha)
+
+        public int VerificaCadastro(string cpf)            //verifica se o CPF que está sendo inserido não esta cadastrado no banco de dados
+        {
+            string verificaDB = "SELECT COUNT(*) FROM tbl_Enfermeiro WHERE CPF_Enf = @CPF AND IsActive = 1";
+            SqlCommand cmdV = new SqlCommand(verificaDB, conn);
+            cmdV.Parameters.AddWithValue("@CPF", cpf);
+            conn.Open();
+            int count = (int)cmdV.ExecuteScalar();
+            conn.Close();
+            return count;
+
+        }
+        public void SalvarDados(string cpf, string nome, string senha)        //Grava os dados cadastrais de um enfermeiro em um banco de dados
+
         {
             pessoa.Nome=nome;
             pessoa.CPF=cpf;
             this.Senha = senha;
 
             try
-
-            {   //verifica se o CPF que está sendo inserido não esta cadastrado no banco de dados
-                string verificaDB = "SELECT COUNT(*) FROM tbl_Enfermeiro WHERE CPF_Enf = @CPF AND IsActive = 1";
-                SqlCommand cmdV = new SqlCommand(verificaDB, conn);
-                cmdV.Parameters.AddWithValue("@CPF", cpf);
-                conn.Open();
-                int count = (int)cmdV.ExecuteScalar();
-                conn.Close();
+            {
+               int count = VerificaCadastro(cpf);
                 if (count > 0)//caso estiver cadastrado, é exibido a mensagem de erro.
                 {
                     MessageBox.Show("Este CPF já está cadastrado, não é possível fazer um novo cadastro no mesmo CPF", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 }
-                else
+                else                    //caso o CPF inserido não estiver cadastrado, o cadastro é gravado.
                 {
-                    //caso o CPF inserido não estiver cadastrado, o cadastro é gravado.
                     string sql = "INSERT into tbl_Enfermeiro(CPF_Enf, Nome, Senha) values (@ncpf, @nome, @senha)";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.Add("@ncpf", SqlDbType.VarChar).Value = cpf;
@@ -71,8 +76,9 @@ namespace Sistema_de_Gerenciamento_Hospitalar
                 conn.Close();
             }
         }
-        //salvar alterações de dados de um usuário enfermeiro
-        public void SalvarAlter(string cpf, string nome, string senha)
+
+        public void SalvarAlter(string cpf, string nome, string senha)        //salvar alterações de dados de um usuário enfermeiro
+
         {
 
             pessoa.Nome= nome;
@@ -101,8 +107,9 @@ namespace Sistema_de_Gerenciamento_Hospitalar
                 conn.Close();
             }
         }
-        //Exclusão dos dados cadastrais de um enfermeiro
-        public void DeletarDados(string cpf)
+
+        public void DeletarDados(string cpf)        //Exclusão dos dados cadastrais de um enfermeiro
+
         {
             try
             {
@@ -122,8 +129,9 @@ namespace Sistema_de_Gerenciamento_Hospitalar
                 conn.Close();
             }
         }
-        //Método para conferir os dados do usuário enfermeiro em comparação as informações do banco de dados
-        public bool Login(string cpf, string senha)
+
+        public bool Login(string cpf, string senha)        //Método para conferir os dados do usuário enfermeiro em comparação as informações do banco de dados
+
         {
             pessoa.CPF = cpf;
             this.Senha= senha;

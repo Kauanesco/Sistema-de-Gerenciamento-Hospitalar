@@ -18,6 +18,24 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             InitializeComponent();
         }
 
+        public int Prior(string prioridade)
+        { int prioridades;
+            if(prioridade == "Alta")
+            {
+                prioridades = 1;
+                return prioridades;
+            } else if(prioridade == "Média")
+            {
+                prioridades=2;
+                return prioridades;
+            }else 
+            {
+                prioridades = 3;
+                return prioridades;
+            }
+
+       
+        }
         private void Pesquisa_Dados_Click(object sender, EventArgs e)
         {
             //comando para que não seja pesquisados valores vazios
@@ -81,9 +99,9 @@ namespace Sistema_de_Gerenciamento_Hospitalar
 
         private void Gravar_Click(object sender, EventArgs e)
         {
-            
+            int prioridade =   Prior(Prioridade.Text);
             CPaciente paciente = new CPaciente();
-            paciente.Triagem(Nome.Text,CPF_Pesquisar.Text,Peso.Text, Altura.Text,Temperatura.Text, Pressao.Text, Resumo.Text, Prioridade.Text);
+            paciente.Triagem(Nome.Text,CPF_Pesquisar.Text,Peso.Text, Altura.Text,Temperatura.Text, Pressao.Text, Resumo.Text, prioridade);
 
         }
 

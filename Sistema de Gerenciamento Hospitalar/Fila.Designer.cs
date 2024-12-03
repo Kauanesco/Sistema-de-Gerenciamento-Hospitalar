@@ -35,8 +35,11 @@
             this.Nome_CPF = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.DTG = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.TextBox();
             this.dbHospitalDataSet1 = new Sistema_de_Gerenciamento_Hospitalar.DBHospitalDataSet();
             this.dbHospitalDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.AtenderFIla = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DTG)).BeginInit();
@@ -61,7 +64,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(60, 109);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(534, 165);
+            this.groupBox1.Size = new System.Drawing.Size(581, 165);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Próximo a ser Atendido";
@@ -80,10 +83,11 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.DTG);
+            this.groupBox2.Controls.Add(this.ID);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(60, 310);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(534, 258);
+            this.groupBox2.Size = new System.Drawing.Size(581, 258);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Fila Atualmente";
@@ -101,9 +105,17 @@
             this.DTG.Name = "DTG";
             this.DTG.ReadOnly = true;
             this.DTG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DTG.Size = new System.Drawing.Size(528, 236);
+            this.DTG.Size = new System.Drawing.Size(575, 236);
             this.DTG.TabIndex = 0;
-            this.DTG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTG_CellContentClick_1);
+            this.DTG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTG_CellContentClick);
+            // 
+            // ID
+            // 
+            this.ID.Location = new System.Drawing.Point(351, 100);
+            this.ID.Name = "ID";
+            this.ID.Size = new System.Drawing.Size(59, 23);
+            this.ID.TabIndex = 18;
+            this.ID.Visible = false;
             // 
             // dbHospitalDataSet1
             // 
@@ -115,12 +127,46 @@
             this.dbHospitalDataSet1BindingSource.DataSource = this.dbHospitalDataSet1;
             this.dbHospitalDataSet1BindingSource.Position = 0;
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(647, 601);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(14, 0, 5, 0);
+            this.button1.Size = new System.Drawing.Size(267, 70);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Retirar Próximo da Fila";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // AtenderFIla
+            // 
+            this.AtenderFIla.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AtenderFIla.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AtenderFIla.Image = ((System.Drawing.Image)(resources.GetObject("AtenderFIla.Image")));
+            this.AtenderFIla.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AtenderFIla.Location = new System.Drawing.Point(647, 516);
+            this.AtenderFIla.Name = "AtenderFIla";
+            this.AtenderFIla.Padding = new System.Windows.Forms.Padding(14, 0, 5, 0);
+            this.AtenderFIla.Size = new System.Drawing.Size(267, 70);
+            this.AtenderFIla.TabIndex = 20;
+            this.AtenderFIla.Text = "Atender Próximo da Fila";
+            this.AtenderFIla.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AtenderFIla.UseVisualStyleBackColor = true;
+            this.AtenderFIla.Click += new System.EventHandler(this.AtenderFIla_Click);
+            // 
             // Fila
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(920, 682);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AtenderFIla);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label13);
@@ -133,6 +179,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DTG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbHospitalDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbHospitalDataSet1BindingSource)).EndInit();
@@ -150,5 +197,8 @@
         private DBHospitalDataSet dbHospitalDataSet1;
         private System.Windows.Forms.DataGridView DTG;
         private System.Windows.Forms.BindingSource dbHospitalDataSet1BindingSource;
+        private System.Windows.Forms.TextBox ID;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AtenderFIla;
     }
 }

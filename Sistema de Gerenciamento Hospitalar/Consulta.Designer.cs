@@ -153,6 +153,7 @@
             this.Resumo.Name = "Resumo";
             this.Resumo.Size = new System.Drawing.Size(227, 52);
             this.Resumo.TabIndex = 3;
+            this.Resumo.TextChanged += new System.EventHandler(this.Resumo_TextChanged);
             // 
             // Diagnostico
             // 

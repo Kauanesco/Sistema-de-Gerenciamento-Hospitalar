@@ -17,8 +17,8 @@ namespace Sistema_de_Gerenciamento_Hospitalar
         SqlConnection conn = new SqlConnection("Data Source=DESKTOP-FIH0C4I\\SQLEXPRESS01;integrated security=SSPI;Initial Catalog=DBHospital");
         public string Senha { get; set; }
 
-        //Autenticação de Login
-         public virtual int Autentica(string cpf, string senha)
+         public virtual int Autentica(string cpf, string senha)        //Autenticação de Login
+
         {
             conn.Open();
             string sql = "SELECT COUNT(*) FROM Administrador WHERE CPF = @cpf AND Senha = @senha";
@@ -35,8 +35,8 @@ namespace Sistema_de_Gerenciamento_Hospitalar
 
         }
 
-        //Garante acesso ao sistema pelo usuário administrador
-        public bool Login(string cpf, string senha)
+        public bool Login(string cpf, string senha)        //Garante acesso ao sistema pelo usuário administrador
+
         {
             int count = Autentica(cpf, senha);
 
@@ -110,18 +110,5 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             Application.Exit();
         }
 
-    public bool Ola(int a)
-        {
-            bool resultado;
-            if(a > 0)
-            {
-                return resultado = true;
-
-            }
-            else
-            {
-                return resultado = false;
-            }
-        }
     }
 }

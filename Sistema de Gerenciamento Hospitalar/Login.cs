@@ -17,7 +17,7 @@ namespace Sistema_de_Gerenciamento_Hospitalar
         {
             InitializeComponent();
         }
-        //confirmação de dados do médico
+       
         public void EntraMedico()
         {
             Médico medico = new Médico();
@@ -30,11 +30,10 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             }
             else
             {
-                MessageBox.Show("Senha incorreta.");
+                MessageBox.Show("Os dados inseridos estão incorretos.\nInsira corretamente e tente novamente.", "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        }//Acesso Médico
 
-        //confirmação de dados do enfermeiro
         public void EntraEnfermeiro()
         {
             Enfermeiro enfermeiro = new Enfermeiro();
@@ -49,9 +48,10 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             }
             else
             {
-                MessageBox.Show("Senha incorreta.");
+                MessageBox.Show("Os dados inseridos estão incorretos.\nInsira corretamente e tente novamente.", "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        } //Acesso Enfermeiro
+
         public void EntraAdministrador()
         {
             Administrador administrador = new Administrador();
@@ -66,11 +66,11 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             }
             else
             {
-                MessageBox.Show("Senha incorreta.");
+                MessageBox.Show("Os dados inseridos estão incorretos.\nInsira corretamente e tente novamente.", "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        }//Acesso Administrador
 
-        private void Entrar_Click(object sender, EventArgs e)
+        private void Entrar_Click(object sender, EventArgs e)//verifica os perfis dos valores que estão inseridos e valida que não foi inserido nenhum valor em branco
         {
             if (!string.IsNullOrWhiteSpace(CPF.Text) && !string.IsNullOrWhiteSpace(Senha.Text) && Cargo.Text == "Médico")
             {
@@ -92,12 +92,12 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             }
         }
 
-        private void Senha_TextChanged(object sender, EventArgs e)
+        private void Senha_TextChanged(object sender, EventArgs e)//os valores inseridos estão com caracteres de proteção de senha
         {
-
+            Senha.UseSystemPasswordChar = true;
         }
 
-        private void CPF_KeyPress(object sender, KeyPressEventArgs e)
+        private void CPF_KeyPress(object sender, KeyPressEventArgs e) //apenas números na inserção
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
             {
@@ -115,7 +115,7 @@ namespace Sistema_de_Gerenciamento_Hospitalar
 
         }
 
-        private void Sair_Click(object sender, EventArgs e)
+        private void Sair_Click(object sender, EventArgs e)//Botão sair
         {
             this.Close();
         }
@@ -123,6 +123,22 @@ namespace Sistema_de_Gerenciamento_Hospitalar
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
 
+        }
+
+        private void Visualizar_MouseDown(object sender, MouseEventArgs e)//visualizar senha com caracteres originais
+        {
+            Senha.UseSystemPasswordChar = false;
+        }
+
+        private void Visualizar_MouseUp(object sender, MouseEventArgs e)//os valores inseridos estão com caracteres de proteção de senha
+        {
+            Senha.UseSystemPasswordChar = true;
+
+        }
+
+        private void Visualizar_MouseMove(object sender, MouseEventArgs e)
+        {
+            toolTip1.SetToolTip(Senha, "Exibe os valores contidos na senha"); //exibe senha
         }
     }
 }

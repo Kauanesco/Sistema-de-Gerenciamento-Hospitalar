@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,8 +38,10 @@
             this.CPF = new System.Windows.Forms.MaskedTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Visualizar = new System.Windows.Forms.Button();
             this.Entrar = new System.Windows.Forms.Button();
             this.Sair = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,8 +73,7 @@
             this.Senha.Location = new System.Drawing.Point(54, 86);
             this.Senha.MaxLength = 8;
             this.Senha.Name = "Senha";
-            this.Senha.PasswordChar = '*';
-            this.Senha.Size = new System.Drawing.Size(138, 26);
+            this.Senha.Size = new System.Drawing.Size(100, 26);
             this.Senha.TabIndex = 1;
             this.Senha.TextChanged += new System.EventHandler(this.Senha_TextChanged);
             this.Senha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Senha_KeyPress);
@@ -122,6 +124,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.Visualizar);
             this.groupBox1.Controls.Add(this.CPF);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
@@ -137,6 +140,23 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insira seus Dados";
+            // 
+            // Visualizar
+            // 
+            this.Visualizar.BackColor = System.Drawing.Color.White;
+            this.Visualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Visualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Visualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Visualizar.Image = ((System.Drawing.Image)(resources.GetObject("Visualizar.Image")));
+            this.Visualizar.Location = new System.Drawing.Point(160, 86);
+            this.Visualizar.Name = "Visualizar";
+            this.Visualizar.Size = new System.Drawing.Size(32, 26);
+            this.Visualizar.TabIndex = 59;
+            this.Visualizar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Visualizar.UseVisualStyleBackColor = false;
+            this.Visualizar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Visualizar_MouseDown);
+            this.Visualizar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Visualizar_MouseMove);
+            this.Visualizar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Visualizar_MouseUp);
             // 
             // Entrar
             // 
@@ -163,6 +183,10 @@
             this.Sair.Text = "Sair";
             this.Sair.UseVisualStyleBackColor = true;
             this.Sair.Click += new System.EventHandler(this.Sair_Click);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.ToolTipTitle = "Exibir senha";
             // 
             // Login
             // 
@@ -197,5 +221,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button Entrar;
         private System.Windows.Forms.Button Sair;
+        private System.Windows.Forms.Button Visualizar;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

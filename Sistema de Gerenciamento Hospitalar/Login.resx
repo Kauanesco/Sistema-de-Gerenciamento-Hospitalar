@@ -121,7 +121,7 @@
   <data name="panel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAOoAAAGJCAIAAAAL4ThZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAA/7JJREFUeF7s/QV0XEe2/oHGUrO4Rc3MKGZmtmTLMkiyZZRt2ZZlkGXLzMzMEGZm
+        DAAACwwBP0AiyAAA/7JJREFUeF7s/QV0XEe2/oHGUrO4Rc3MKGZmtmTLMkiyZZRt2ZZlkGXLzMzMEGZm
         h2kgmXAymcmEM5PJMGZy/2u99+06p1st2U6cuXPHeW/Fa69e7daBOlW/2vXtonNdmFwTJteGxXOmC7Xw
         eP2oBENYgkmg9ESnNSkb+1Utg7FZrSJdaniSNTzRFJ5kDE/C56VmJks2hyWbRyVbwpIt+G9YklWsT9F0
         7tLPOCoy5Ualt2hnHjUuukO3+F7jorsVbRulzrJwhTM82SJQWMJ5s5IlW8Poi0WQBLMKdamxhVO03acM
@@ -2220,6 +2220,20 @@
         +/L6g+IYxWAAxVrVIn/WgmAI8+ldlLyLhIggofz/Axt7yi53OU1TAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="Visualizar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        cAAAAHABznhikwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAETSURBVDhPpdI/
+        TsMwFMdxq10SdeqSLQfIBXIGtvYIDf8ukUhwBzhBKnVARWJBcAAkxAEQYoGNse0NzPdnGeQQCxpR6VPl
+        vdjP9ouNtfZfoskhoskh+gljUhzgHHd4wgqnmPTGdwJjZnjHCy5wjBOsscUOVWeOn5jgGh9YYIQSrafn
+        MbSACtXfBfhp8j2ekfukJmzQeHou/bsCb7iEFjI3eMA0qKpVmyBWkTaIMzxiqUB/CrJgwF8FptCiWtxt
+        Q9vRtgo/4Lcj5NBxdezEVfQvaqhBapQaFmviIdRoNTxx874K+CIV9Km04hWOoM+oHb5Cn3jemRMGLsFl
+        gS6NLo8u0S3OoMuV9sb/TAwVTQ4RTe7Pmk9mGeo2IlbB+AAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAG8AAABvAAAAEAAAABAA

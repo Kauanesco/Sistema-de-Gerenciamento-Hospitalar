@@ -25,6 +25,11 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             Data.Text = dataHoraAtual.ToString("dd/MM/yyyy HH:mm:ss");
         }
 
+        public void AtendimentoDaFila()
+        {
+            AtenderFIla.PerformClick();
+        }
+
         //Exibe os dados do médico
         public void DadosDr()
         {
@@ -215,6 +220,11 @@ namespace Sistema_de_Gerenciamento_Hospitalar
         private void Cancelar_Click(object sender, EventArgs e)
         {
             Cancela();
+        }
+
+        private void Resumo_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
