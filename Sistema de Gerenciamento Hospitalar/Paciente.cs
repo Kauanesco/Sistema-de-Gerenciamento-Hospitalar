@@ -53,6 +53,8 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             Alterar.Enabled = false;
             Novo_Pac.Enabled = true;
             SalvarAlteração.SendToBack();
+            Limpa();
+            Cancelar.Enabled = false;
         }
         public void PesquisaPaciente()        //Método para exibir os dados do paciente em um datagrid
 
@@ -177,7 +179,7 @@ namespace Sistema_de_Gerenciamento_Hospitalar
 
         }
 
-        public void GravarDados()        //Método para enviar os dados do paciente a classe paciente para se comunicar com a inserção no banco de dados
+        public void GravarDados(string nome, string cpf, string nascimento)        //Método para enviar os dados do paciente a classe paciente para se comunicar com a inserção no banco de dados
 
         {
             //Controle para que não haja a incrementação com dados em branco.
@@ -294,7 +296,7 @@ namespace Sistema_de_Gerenciamento_Hospitalar
 
         private void Gravar_Click(object sender, EventArgs e)
         {
-            GravarDados();
+            GravarDados(Nome_Pac.Text, CPF_Pac.Text, Nasc_Pac.Text);
 
         }
 
@@ -426,7 +428,7 @@ namespace Sistema_de_Gerenciamento_Hospitalar
 
         private void Endereco_DoubleClick(object sender, EventArgs e)
         {
-            GroupEnder.Visible=true;
+          
         }
 
         private void label13_Click(object sender, EventArgs e)
@@ -440,6 +442,10 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             
         }
 
+        private void Endereco_Click(object sender, EventArgs e)
+        {
+            GroupEnder.Visible=true;
+        }
     }
 }
 

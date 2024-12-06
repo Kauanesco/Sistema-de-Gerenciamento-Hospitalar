@@ -84,6 +84,7 @@
             this.CPF_Pesquisar.Name = "CPF_Pesquisar";
             this.CPF_Pesquisar.Size = new System.Drawing.Size(151, 26);
             this.CPF_Pesquisar.TabIndex = 0;
+            this.CPF_Pesquisar.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.CPF_Pesquisar_MaskInputRejected);
             // 
             // Pesquisa_Dados
             // 
@@ -229,6 +230,7 @@
             this.Resumo.Name = "Resumo";
             this.Resumo.Size = new System.Drawing.Size(396, 113);
             this.Resumo.TabIndex = 6;
+            this.Resumo.TextChanged += new System.EventHandler(this.Resumo_TextChanged);
             // 
             // Gravar
             // 

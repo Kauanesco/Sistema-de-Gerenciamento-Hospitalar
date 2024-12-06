@@ -40,6 +40,8 @@
             this.dbHospitalDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.AtenderFIla = new System.Windows.Forms.Button();
+            this.ExcluiSelecionado = new System.Windows.Forms.Button();
+            this.Selecionado = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DTG)).BeginInit();
@@ -108,6 +110,7 @@
             this.DTG.Size = new System.Drawing.Size(575, 236);
             this.DTG.TabIndex = 0;
             this.DTG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTG_CellContentClick);
+            this.DTG.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.DTG_MouseDoubleClick);
             // 
             // ID
             // 
@@ -133,7 +136,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(647, 601);
+            this.button1.Location = new System.Drawing.Point(647, 521);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(14, 0, 5, 0);
             this.button1.Size = new System.Drawing.Size(267, 70);
@@ -149,7 +152,7 @@
             this.AtenderFIla.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AtenderFIla.Image = ((System.Drawing.Image)(resources.GetObject("AtenderFIla.Image")));
             this.AtenderFIla.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AtenderFIla.Location = new System.Drawing.Point(647, 516);
+            this.AtenderFIla.Location = new System.Drawing.Point(647, 436);
             this.AtenderFIla.Name = "AtenderFIla";
             this.AtenderFIla.Padding = new System.Windows.Forms.Padding(14, 0, 5, 0);
             this.AtenderFIla.Size = new System.Drawing.Size(267, 70);
@@ -159,17 +162,41 @@
             this.AtenderFIla.UseVisualStyleBackColor = true;
             this.AtenderFIla.Click += new System.EventHandler(this.AtenderFIla_Click);
             // 
+            // ExcluiSelecionado
+            // 
+            this.ExcluiSelecionado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ExcluiSelecionado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExcluiSelecionado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ExcluiSelecionado.Location = new System.Drawing.Point(60, 571);
+            this.ExcluiSelecionado.Name = "ExcluiSelecionado";
+            this.ExcluiSelecionado.Padding = new System.Windows.Forms.Padding(14, 0, 5, 0);
+            this.ExcluiSelecionado.Size = new System.Drawing.Size(262, 31);
+            this.ExcluiSelecionado.TabIndex = 22;
+            this.ExcluiSelecionado.Text = "Retirar Selecionado na Fila";
+            this.ExcluiSelecionado.UseVisualStyleBackColor = true;
+            this.ExcluiSelecionado.Click += new System.EventHandler(this.ExcluiSelecionado_Click);
+            // 
+            // Selecionado
+            // 
+            this.Selecionado.Location = new System.Drawing.Point(186, 578);
+            this.Selecionado.Name = "Selecionado";
+            this.Selecionado.Size = new System.Drawing.Size(100, 20);
+            this.Selecionado.TabIndex = 23;
+            this.Selecionado.Visible = false;
+            // 
             // Fila
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(920, 682);
+            this.Controls.Add(this.ExcluiSelecionado);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.AtenderFIla);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label13);
+            this.Controls.Add(this.Selecionado);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Fila";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -200,5 +227,7 @@
         private System.Windows.Forms.TextBox ID;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button AtenderFIla;
+        private System.Windows.Forms.Button ExcluiSelecionado;
+        private System.Windows.Forms.TextBox Selecionado;
     }
 }

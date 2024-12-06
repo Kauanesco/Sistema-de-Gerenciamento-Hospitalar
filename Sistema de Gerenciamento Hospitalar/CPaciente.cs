@@ -208,24 +208,49 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             this.Pressao = pressao;
             this.ResumoPac = resumo;
             this.Prioridade = prioridade;
+
+
             try
             {
+               
+                    string verificaDB = "SELECT COUNT(*) FROM tbl_Fila WHERE CPF_Paciente = @CPF";
+                    SqlCommand cmdV = new SqlCommand(verificaDB, conn);
+                    cmdV.Parameters.AddWithValue("@CPF", cpf);
+                    conn.Open();
+                    int count = (int)cmdV.ExecuteScalar();
+                conn.Close();
+                if (count > 0)
+                {
+                    MessageBox.Show("O paciente já está inserido na fila de atendimento.", "Paciente na fila", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    string sql = "UPDATE tbl_Paciente SET Peso = @peso, Altura = @altura, Pressao = @pressao, Temperatura = @temperatura, Resumo = @resumo, Prioridade = @prioridade WHERE CPF_Paciente = @ncpf";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.Add("@ncpf", SqlDbType.VarChar).Value = cpf;
+                    cmd.Parameters.Add("@peso", SqlDbType.VarChar).Value = peso;
+                    cmd.Parameters.Add("@altura", SqlDbType.VarChar).Value = altura;
+                    cmd.Parameters.Add("@temperatura", SqlDbType.VarChar).Value = temperatura;
+                    cmd.Parameters.Add("@pressao", SqlDbType.VarChar).Value = pressao;
+                    cmd.Parameters.Add("@resumo", SqlDbType.VarChar).Value = resumo;
+                    cmd.Parameters.Add("@prioridade", SqlDbType.VarChar).Value = prioridade;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Os dados inseridos foram Salvos", "Dados da triagem Salvos", MessageBoxButtons.OK);
+                    conn.Close();
 
-                string sql = "UPDATE tbl_Paciente SET Peso = @peso, Altura = @altura, Pressao = @pressao, Temperatura = @temperatura, Resumo = @resumo, Prioridade = @prioridade WHERE CPF_Paciente = @ncpf";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.Add("@ncpf", SqlDbType.VarChar).Value = cpf;
-                cmd.Parameters.Add("@peso", SqlDbType.VarChar).Value = peso;
-                cmd.Parameters.Add("@altura", SqlDbType.VarChar).Value = altura;
-                cmd.Parameters.Add("@temperatura", SqlDbType.VarChar).Value = temperatura;
-                cmd.Parameters.Add("@pressao", SqlDbType.VarChar).Value = pressao;
-                cmd.Parameters.Add("@resumo", SqlDbType.VarChar).Value = resumo;
-                cmd.Parameters.Add("@prioridade", SqlDbType.VarChar).Value = prioridade;
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Os dados inseridos foram Salvos", "Dados da triagem Salvos", MessageBoxButtons.OK);
+                    string fila = "INSERT INTO tbl_Fila (CPF_Paciente, Nome, Prioridade) values (@ncpf, @nome, @prioridade) "; 
+                    SqlCommand cm = new SqlCommand(fila, conn);
+                    conn.Open();
+                    cm.Parameters.Add("@ncpf", SqlDbType.VarChar).Value = cpf;
+                    cm.Parameters.Add("@nome", SqlDbType.VarChar).Value = nome;
+                    cm.Parameters.Add("@prioridade", SqlDbType.VarChar).Value = prioridade;
+                    cm.ExecuteNonQuery();
+                    conn.Close();
 
 
 
+                }
             }
             catch (Exception erro)
             {
@@ -237,25 +262,6 @@ namespace Sistema_de_Gerenciamento_Hospitalar
                 conn.Close();
             }
 
-            try
-            {
-
-                conn.Open();
-                string fila = "INSERT INTO tbl_Fila (CPF_Paciente, Nome, Prioridade) values (@ncpf, @nome, @prioridade) "; SqlCommand cm = new SqlCommand(fila, conn);
-                cm.Parameters.Add("@ncpf", SqlDbType.VarChar).Value = cpf;
-                cm.Parameters.Add("@nome", SqlDbType.VarChar).Value = nome;
-                cm.Parameters.Add("@prioridade", SqlDbType.VarChar).Value = prioridade;
-                cm.ExecuteNonQuery();
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show(""+erro);
-                conn.Close();
-            }
-            finally
-            {
-                conn.Close();
-            }
 
 
 

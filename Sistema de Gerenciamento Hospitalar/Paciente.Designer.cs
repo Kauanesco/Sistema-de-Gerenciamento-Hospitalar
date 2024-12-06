@@ -777,8 +777,8 @@
             this.Endereco.Name = "Endereco";
             this.Endereco.Size = new System.Drawing.Size(499, 20);
             this.Endereco.TabIndex = 30;
+            this.Endereco.Click += new System.EventHandler(this.Endereco_Click);
             this.Endereco.TextChanged += new System.EventHandler(this.Endereco_TextChanged);
-            this.Endereco.DoubleClick += new System.EventHandler(this.Endereco_DoubleClick);
             // 
             // label18
             // 

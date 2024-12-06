@@ -17,7 +17,7 @@ namespace Sistema_de_Gerenciamento_Hospitalar
         SqlConnection conn = new SqlConnection("Data Source=DESKTOP-FIH0C4I\\SQLEXPRESS01;integrated security=SSPI;Initial Catalog=DBHospital");
         public string Senha { get; set; }
 
-         public virtual int Autentica(string cpf, string senha)        //Autenticação de Login
+        public virtual int Autentica(string cpf, string senha)        //Autenticação de Login
 
         {
             conn.Open();
@@ -110,5 +110,9 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             Application.Exit();
         }
 
+        public void VerificaLogin(bool v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -90,7 +90,8 @@
             this.Cargo.Location = new System.Drawing.Point(54, 128);
             this.Cargo.Name = "Cargo";
             this.Cargo.Size = new System.Drawing.Size(138, 28);
-            this.Cargo.TabIndex = 2;
+            this.Cargo.TabIndex = 3;
+            this.Cargo.SelectedIndexChanged += new System.EventHandler(this.Cargo_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -140,6 +141,7 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insira seus Dados";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // Visualizar
             // 
@@ -151,7 +153,7 @@
             this.Visualizar.Location = new System.Drawing.Point(160, 86);
             this.Visualizar.Name = "Visualizar";
             this.Visualizar.Size = new System.Drawing.Size(32, 26);
-            this.Visualizar.TabIndex = 59;
+            this.Visualizar.TabIndex = 2;
             this.Visualizar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Visualizar.UseVisualStyleBackColor = false;
             this.Visualizar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Visualizar_MouseDown);
@@ -166,7 +168,7 @@
             this.Entrar.Location = new System.Drawing.Point(30, 292);
             this.Entrar.Name = "Entrar";
             this.Entrar.Size = new System.Drawing.Size(99, 23);
-            this.Entrar.TabIndex = 18;
+            this.Entrar.TabIndex = 0;
             this.Entrar.Text = "Entrar";
             this.Entrar.UseVisualStyleBackColor = true;
             this.Entrar.Click += new System.EventHandler(this.Entrar_Click);
@@ -179,7 +181,7 @@
             this.Sair.Location = new System.Drawing.Point(167, 292);
             this.Sair.Name = "Sair";
             this.Sair.Size = new System.Drawing.Size(99, 23);
-            this.Sair.TabIndex = 19;
+            this.Sair.TabIndex = 1;
             this.Sair.Text = "Sair";
             this.Sair.UseVisualStyleBackColor = true;
             this.Sair.Click += new System.EventHandler(this.Sair_Click);
@@ -200,6 +202,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

@@ -92,7 +92,7 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             }
         }
 
-        private void Senha_TextChanged(object sender, EventArgs e)//os valores inseridos estão com caracteres de proteção de senha
+        public void Senha_TextChanged(object sender, EventArgs e)//os valores inseridos estão com caracteres de proteção de senha
         {
             Senha.UseSystemPasswordChar = true;
         }
@@ -110,9 +110,8 @@ namespace Sistema_de_Gerenciamento_Hospitalar
 
         }
 
-        private void CPF_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        public void CPF_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-
         }
 
         private void Sair_Click(object sender, EventArgs e)//Botão sair
@@ -139,6 +138,16 @@ namespace Sistema_de_Gerenciamento_Hospitalar
         private void Visualizar_MouseMove(object sender, MouseEventArgs e)
         {
             toolTip1.SetToolTip(Senha, "Exibe os valores contidos na senha"); //exibe senha
+        }
+
+        public void Cargo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

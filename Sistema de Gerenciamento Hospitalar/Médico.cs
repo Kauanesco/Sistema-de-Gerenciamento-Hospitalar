@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Sistema_de_Gerenciamento_Hospitalar
 {
-    internal class Médico
+    public class Médico
     {
         //Variaveis e conexão com banco de dados
         SqlConnection conn = new SqlConnection("Data Source=DESKTOP-FIH0C4I\\SQLEXPRESS01;integrated security=SSPI;Initial Catalog=DBHospital");

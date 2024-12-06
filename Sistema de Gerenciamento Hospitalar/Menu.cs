@@ -50,7 +50,7 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             }
             else
             {
-                MessageBox.Show("Seu usuário, não tem permissão para acessar a esta funcionalidade.\n Caso necessite de acesso, procure a Administração", "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seu usuário não tem permissão para acessar a esta funcionalidade.\nCaso necessite de acesso, procure a Administração", "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         public void Prontuário()
@@ -85,7 +85,7 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             }
             else
             {
-                MessageBox.Show("Seu usuário, não tem permissão para acessar a esta funcionalidade.\n Caso necessite de acesso, procure a Administração", "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seu usuário não tem permissão para acessar a esta funcionalidade.\nCaso necessite de acesso, procure a Administração", "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         public void Pacientes()
@@ -144,7 +144,7 @@ namespace Sistema_de_Gerenciamento_Hospitalar
             }
             else
             {
-                MessageBox.Show("Seu usuário, não tem permissão para acessar a esta funcionalidade.\n Caso necessite de acesso, procure a Administração", "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seu usuário não tem permissão para acessar a esta funcionalidade.\nCaso necessite de acesso, procure a Administração", "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         public void Triagens()
